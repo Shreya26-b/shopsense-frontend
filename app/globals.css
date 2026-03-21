@@ -2,3 +2,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Light mode — already the default */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --surface:    #f9fafb;
+  --border:     #e5e7eb;
+  --muted:      #6b7280;
+}
+
+/* Dark mode */
+.dark {
+  --background: #0f0f0f;
+  --foreground: #f9fafb;
+  --surface:    #1a1a1a;
+  --border:     #2a2a2a;
+  --muted:      #9ca3af;
+}
+
+body {
+  background-color: var(--background);
+  color:            var(--foreground);
+}

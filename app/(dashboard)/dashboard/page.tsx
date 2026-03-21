@@ -28,14 +28,16 @@ export default async function DashboardPage() {
     <div className="flex flex-col gap-6">
       {/* Page header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Overview</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Overview
+        </h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
           Last 6 months — {session.user.email}
         </p>
       </div>
 
       {/* Metric cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <MetricCard
           label="Total Revenue"
           value={`$${overview.total_revenue.toLocaleString()}`}
