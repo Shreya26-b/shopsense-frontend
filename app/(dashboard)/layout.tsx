@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import SignOutButton from "@/components/SignOutButton";
 import ThemeToggle from "@/components/ThemeToggle";
-import TourGuide from "@/components/TourGuide"
+import TourGuide from "@/components/TourGuide";
 
 const navItems = [
   { href: "/dashboard", label: "Overview" },
@@ -36,19 +36,20 @@ export default function DashboardLayout({
       )}
 
       {/* Sidebar */}
+      {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 h-full w-64 z-30
-          bg-white dark:bg-gray-900
-          border-r border-gray-200 dark:border-gray-800
-          p-6 flex flex-col gap-2
-          transition-transform duration-200
-          ${open ? "translate-x-0" : "-translate-x-full"}
-          lg:relative lg:translate-x-0
-        `}
+    fixed top-0 left-0 h-screen w-64 z-30
+    bg-white dark:bg-gray-900
+    border-r border-gray-200 dark:border-gray-800
+    flex flex-col
+    transition-transform duration-200
+    ${open ? "translate-x-0" : "-translate-x-full"}
+    lg:translate-x-0
+  `}
       >
-        {/* Logo */}
-        <div className="flex items-center justify-between mb-6">
+        {/* Logo — always visible at top */}
+        <div className="flex items-center justify-between px-6 py-6 flex-shrink-0">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             ShopSense
           </h2>
@@ -60,30 +61,29 @@ export default function DashboardLayout({
           </button>
         </div>
 
-        {/* Navigation */}
-        {/* Navigation */}
-        <nav className="flex flex-col gap-1 flex-1">
+        {/* Navigation — scrollable if many items */}
+        <nav className="flex-1 overflow-y-auto px-6 flex flex-col gap-1">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className={`
-        px-3 py-2 rounded-lg text-sm transition-colors
-        ${
-          pathname === item.href
-            ? "bg-black text-white dark:bg-white dark:text-black font-medium"
-            : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-        }
-      `}
+          px-3 py-2 rounded-lg text-sm transition-colors
+          ${
+            pathname === item.href
+              ? "bg-black text-white dark:bg-white dark:text-black font-medium"
+              : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+          }
+        `}
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Bottom section */}
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-4 flex flex-col gap-1">
+        {/* Bottom section — always fixed at bottom, never scrolls */}
+        <div className="flex-shrink-0 border-t border-gray-200 dark:border-gray-800 px-6 py-4 flex flex-col gap-1">
           <ThemeToggle />
           <p className="text-xs text-gray-400 dark:text-gray-600 px-3 truncate">
             {session?.user?.email}
@@ -93,7 +93,7 @@ export default function DashboardLayout({
       </aside>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
         {/* Mobile header */}
         <header className="lg:hidden flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
           <button
@@ -108,7 +108,7 @@ export default function DashboardLayout({
         {/* Page content */}
         <main className="flex-1 p-4 lg:p-8 overflow-auto">{children}</main>
       </div>
-       <TourGuide />
+      <TourGuide />
     </div>
   );
 }
