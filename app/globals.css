@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 /* Light mode — already the default */
+@import "driver.js/dist/driver.css";
 @variant dark (&:where(.dark, .dark *));
 
 :root {

@@ -1,32 +1,32 @@
 // app/(dashboard)/layout.tsx
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useSession } from "next-auth/react"
-import { usePathname } from "next/navigation"
-import SignOutButton from "@/components/SignOutButton"
-import ThemeToggle from "@/components/ThemeToggle"
+import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
+import SignOutButton from "@/components/SignOutButton";
+import ThemeToggle from "@/components/ThemeToggle";
+import TourGuide from "@/components/TourGuide";
 
 const navItems = [
-  { href: "/dashboard",  label: "Overview"   },
-  { href: "/products",   label: "Products"   },
-  { href: "/analytics",  label: "Analytics"  },
-  { href: "/chat",       label: "AI Chat"    },
-  { href: "/import",     label: "Import CSV" },
-]
+  { href: "/dashboard", label: "Overview" },
+  { href: "/products", label: "Products" },
+  { href: "/analytics", label: "Analytics" },
+  { href: "/chat", label: "AI Chat" },
+  { href: "/import", label: "Import CSV" },
+];
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const { data: session } = useSession()
-  const pathname          = usePathname()
-  const [open, setOpen]   = useState(false)
+  const { data: session } = useSession();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-950">
-
       {/* Mobile overlay */}
       {open && (
         <div
@@ -63,15 +63,16 @@ export default function DashboardLayout({
         {/* Nav links — takes all remaining space */}
         <nav className="flex-1 px-6 flex flex-col gap-1 overflow-y-auto">
           {navItems.map((item) => (
-           <a 
+            <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className={`
                 px-3 py-2 rounded-lg text-sm transition-colors
-                ${pathname === item.href
-                  ? "bg-black text-white dark:bg-white dark:text-black font-medium"
-                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                ${
+                  pathname === item.href
+                    ? "bg-black text-white dark:bg-white dark:text-black font-medium"
+                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }
               `}
             >
@@ -92,7 +93,6 @@ export default function DashboardLayout({
 
       {/* Main content — offset by sidebar width on desktop */}
       <div className="flex flex-col w-full lg:pl-64">
-
         {/* Mobile top bar */}
         <header className="lg:hidden sticky top-0 z-10 flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
           <button
@@ -101,18 +101,13 @@ export default function DashboardLayout({
           >
             ☰
           </button>
-          <h1 className="font-bold text-gray-900 dark:text-white">
-            ShopSense
-          </h1>
+          <h1 className="font-bold text-gray-900 dark:text-white">ShopSense</h1>
         </header>
 
         {/* Page content */}
-        <main className="flex-1 p-4 lg:p-8">
-          {children}
-        </main>
-
+        <main className="flex-1 p-4 lg:p-8">{children}</main>
       </div>
-
+      <TourGuide />
     </div>
-  )
+  );
 }
