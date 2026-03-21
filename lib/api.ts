@@ -1,22 +1,25 @@
 // lib/api.ts
-// Reusable fetch wrapper that attaches the JWT token automatically
-
 export async function fetchWithAuth(
   endpoint: string,
   token: string,
   options: RequestInit = {}
 ) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}${endpoint}`,
+    `${process.env.BACKEND_URL}${endpoint}`,
     {
       ...options,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization:  `Bearer ${token}`,
         ...options.headers,
       },
+      cache: "no-store",
     }
   )
+
+  if (res.status === 401) {
+    throw new Error("UNAUTHORIZED")
+  }
 
   if (!res.ok) {
     throw new Error(`API error: ${res.status}`)
