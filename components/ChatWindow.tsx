@@ -124,7 +124,7 @@ export default function ChatWindow() {
     <div className="flex flex-col h-[calc(100vh-8rem)] max-w-3xl mx-auto">
 
       {/* Header */}
-      <div className="mb-4">
+      <div id="tour-chat-header" className="mb-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           AI Analytics Assistant
         </h1>
@@ -138,7 +138,7 @@ export default function ChatWindow() {
 
         {/* Empty state */}
         {messages.length === 0 && (
-          <div className="h-full flex flex-col items-center justify-center gap-4">
+          <div id="tour-suggested-questions" className="h-full flex flex-col items-center justify-center gap-4">
             <p className="text-gray-400 dark:text-gray-600 text-sm">
               Try asking one of these questions:
             </p>
@@ -175,7 +175,7 @@ export default function ChatWindow() {
       </div>
 
       {/* Input area */}
-      <form onSubmit={handleSubmit} className="mt-3 flex gap-2">
+      <form id="tour-chat-input" onSubmit={handleSubmit} className="mt-3 flex gap-2">
         <input
           type="text"
           value={input}

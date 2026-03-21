@@ -102,7 +102,7 @@ export default function ImportPage() {
     <div className="max-w-2xl mx-auto">
 
       {/* Header */}
-      <div className="mb-6">
+      <div id="tour-import-header" className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Import Data
         </h1>
@@ -112,7 +112,7 @@ export default function ImportPage() {
       </div>
 
       {/* Rebuild AI Index */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-4">
+      <div id="tour-rebuild-index" className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-4">
         <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
           Rebuild AI Index
         </h2>
@@ -148,7 +148,7 @@ export default function ImportPage() {
       </div>
 
       {/* Import type selector */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-4">
+      <div id="tour-import-type" className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-4">
         <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
           What are you importing?
         </h2>
@@ -173,7 +173,7 @@ export default function ImportPage() {
       </div>
 
       {/* CSV format guide */}
-      <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
+      <div id="tour-csv-format" className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
         <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
           Expected {type}.csv format:
         </p>
@@ -193,7 +193,7 @@ export default function ImportPage() {
       </div>
 
       {/* File upload */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-4">
+      <div id="tour-file-upload" className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-4">
         <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
           Select CSV file
         </h2>

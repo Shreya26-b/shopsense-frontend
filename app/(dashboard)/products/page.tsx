@@ -30,7 +30,7 @@ export default async function ProductsPage() {
   return (
     <div className="flex flex-col gap-6">
 
-      <div>
+      <div id="tour-products-header">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Products
         </h1>
@@ -39,7 +39,7 @@ export default async function ProductsPage() {
         </p>
       </div>
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+      <div id="tour-monthly-table" className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">

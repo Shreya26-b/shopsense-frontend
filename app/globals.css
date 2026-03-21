@@ -8,21 +8,160 @@
 :root {
   --background: #ffffff;
   --foreground: #111111;
-  --surface:    #f9fafb;
-  --border:     #e5e7eb;
-  --muted:      #6b7280;
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+  --muted: #6b7280;
 }
 
 /* Dark mode */
 .dark {
   --background: #0f0f0f;
   --foreground: #f9fafb;
-  --surface:    #1a1a1a;
-  --border:     #2a2a2a;
-  --muted:      #9ca3af;
+  --surface: #1a1a1a;
+  --border: #2a2a2a;
+  --muted: #9ca3af;
 }
 
 body {
   background-color: var(--background);
-  color:            var(--foreground);
+  color: var(--foreground);
+}
+
+/* ── Driver.js Tour — Base styles ────────────────────────── */
+[class*="driver-popover"] {
+  font-family: inherit !important;
+}
+
+.driver-popover.shopsense-tour {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1) !important;
+  color: #111827 !important;
+  max-width: 320px !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-description {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #4b5563 !important;
+  margin-bottom: 4px !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-progress-text {
+  font-size: 12px !important;
+  color: #9ca3af !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-next-btn {
+  background: transparent !important;
+  border: 1px solid #374151 !important;
+  color: #374151 !important;
+  padding: 7px 16px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-next-btn:hover {
+  background: #f3f4f6 !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-prev-btn {
+  background: transparent !important;
+  border: 1px solid #374151 !important;
+  color: #374151 !important;
+  padding: 7px 16px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-prev-btn:hover {
+  background: #f3f4f6 !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-close-btn {
+  color: #9ca3af !important;
+  font-size: 20px !important;
+  top: 12px !important;
+  right: 12px !important;
+}
+
+.driver-popover.shopsense-tour .driver-popover-close-btn:hover {
+  color: #111827 !important;
+}
+
+/* ── Dark mode — solid dark background, light text ───────── */
+.dark .driver-popover.shopsense-tour {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  color: #f1f5f9 !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-title {
+  color: #f1f5f9 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-description {
+  color: #cbd5e1 !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-progress-text {
+  color: #64748b !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-next-btn {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: none !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-next-btn:hover {
+  background: #e2e8f0 !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-prev-btn {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: none !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-prev-btn:hover {
+  background: #e2e8f0 !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-close-btn {
+  color: #64748b !important;
+}
+
+.dark .driver-popover.shopsense-tour .driver-popover-close-btn:hover {
+  color: #f1f5f9 !important;
+}
+
+/* ── Overlay ─────────────────────────────────────────────── */
+.driver-overlay {
+  background: rgba(0, 0, 0, 0.55) !important;
+}
+
+.dark .driver-overlay {
+  background: rgba(0, 0, 0, 0.75) !important;
+}
+
+.driver-active-element {
+  border-radius: 8px !important;
 }

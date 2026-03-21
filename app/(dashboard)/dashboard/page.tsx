@@ -27,7 +27,7 @@ export default async function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
       {/* Page header */}
-      <div>
+      <div id="tour-overview-header">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Overview
         </h1>
@@ -37,7 +37,10 @@ export default async function DashboardPage() {
       </div>
 
       {/* Metric cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div
+        id="tour-metric-cards"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+      >
         <MetricCard
           label="Total Revenue"
           value={`$${overview.total_revenue.toLocaleString()}`}
@@ -61,12 +64,18 @@ export default async function DashboardPage() {
       </div>
 
       {/* Revenue trend line chart */}
-      <RevenueTrendChart data={trends} />
+      <div id="tour-revenue-chart">
+        <RevenueTrendChart data={trends} />
+      </div>
 
       {/* Bottom row — products + customers side by side */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <TopProductsChart data={products} />
-        <TopCustomersTable data={customers} />
+        <div id="tour-products-chart">
+          <TopProductsChart data={products} />
+        </div>
+        <div id="tour-customers-table">
+          <TopCustomersTable data={customers} />
+        </div>
       </div>
     </div>
   );

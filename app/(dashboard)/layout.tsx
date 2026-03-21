@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import SignOutButton from "@/components/SignOutButton";
 import ThemeToggle from "@/components/ThemeToggle";
+import TourGuide from "@/components/TourGuide"
 
 const navItems = [
   { href: "/dashboard", label: "Overview" },
@@ -107,6 +108,7 @@ export default function DashboardLayout({
         {/* Page content */}
         <main className="flex-1 p-4 lg:p-8 overflow-auto">{children}</main>
       </div>
+       <TourGuide />
     </div>
   );
 }
